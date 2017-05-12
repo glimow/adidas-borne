@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>record movie</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+	<!-- Fichier css pour la popup qui permet d'écrire les paramètres -->
+	<link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- Zone ou est affichée le retour vidéo -->
+    <video id="preview" autoplay></video>
+	<!-- Tag pour tester l'audio, ne fonctionne pas sur ma machine (problème de micro ?) à ignorer -->
+	<audio id="previewsound" autplay></audio>
+	<!-- Bouton pour démarrer l'enregistrement -->
+	<div class="wrapper">
+		<button id="btnRecord" class="recButton">Record Start</button><br>
+	</div>
+	<!-- le code de l'application, importé comme un fichier javascript-->
+    <script src="win.js"></script>
+</body>
+
+</html>

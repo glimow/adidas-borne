@@ -1,0 +1,53 @@
+/* Div ou est affichée l'image en cours */
+video {
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.wrapper {
+	text-align: center;
+}
+
+/*Classe associée au bouton d'enregistrement*/
+.recButton {
+	bottom: 1em;
+	position: fixed;
+	width: 35px;
+	height: 35px;
+	font-size: 0;
+	border: 0;
+	border-radius: 35px;
+	margin: 18px;
+	margin-left: -17px;
+	outline: none;
+	background-color: darkred;
+}
+
+/*Classe ajoutée au bouton quand l'image est en cours d'enregistrement*/
+.Rec {
+	background-color: red;
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
+	}
+}
