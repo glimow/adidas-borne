@@ -34,7 +34,6 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
     localStream = stream;
     preview.srcObject = stream;
-	previewsound.srcObject = stream;
 });
 
 
