@@ -73,14 +73,14 @@ btnRecord.onclick = function() {
 //l'enregistrement terminé
 saveVideo = _ => {
 		swal({
-	  title: 'Merci pour ton message !',
+	  title: 'Merci pour votre message',
 	  //HTML du popup pour les métadatas de la vidéo
 	  html:
 	  	'Titre' +
 	    '<input id="swal-input1" class="swal2-input">' +
 		'Un commentaire ?' +
 	    '<input id="swal-input2" class="swal2-input">' +
-		'Ton nom' +
+		'Votre nom' +
 		'<input id="swal-input3" class="swal2-input">',
 	  preConfirm: function () {
 	    return new Promise(function (resolve) {
@@ -101,7 +101,7 @@ saveVideo = _ => {
 	//Alerte qui préviens que les données sont enregistrées
 		    {
 			title: 'Vidéo ajoutée !',
-		    text:'Merci pour ton message',
+		    text:'Merci pour votre message',
 		    type:'success',
 			timer: 2000
 		 	}
