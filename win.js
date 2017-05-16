@@ -27,9 +27,12 @@ if (os.platform()=="darwin") {
 var metas = new JsonDB("metas",true ,true);
 
 
-//On récupère le flux vidéo (mais le flux audio reste désespérement muet chez moi..)
+//On récupère les flux vidéos et audio
 navigator.mediaDevices.getUserMedia({
-    video: true,
+	video: {
+				width: { ideal: 1920 },
+				height: { ideal: 1080 }
+				},
 	audio: true
 }).then(stream => {
     localStream = stream;
@@ -87,7 +90,7 @@ saveVideo = _ => {
 	      resolve([
 	        $('#swal-input1').val(),
 	        $('#swal-input2').val(),
-			$('#swal-input3').val(),
+			    $('#swal-input3').val(),
 	      ])
 	    })
 	  },
@@ -98,14 +101,14 @@ saveVideo = _ => {
 		// Ajout des métadonnées de la vidéo à la base de données
 		metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2]})
 		swal(
-	//Alerte qui préviens que les données sont enregistrées
+	  //Alerte qui préviens que les données sont enregistrées
 		    {
-			title: 'Vidéo ajoutée !',
+				title: 'Vidéo ajoutée !',
 		    text:'Merci pour votre message',
 		    type:'success',
-			timer: 2000
+				timer: 2000
 		 	}
-		)
+		).then(()=>{intro.classList.toggle("next")})
 	}).catch(swal.noop)
 
 	const blob = new Blob(recordChunk);

@@ -1,22 +1,22 @@
 /* Div ou est affichée l'image en cours */
 video {
 	position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    background-size: cover;
-    overflow: hidden;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .wrapper {
 	text-align: center;
 }
 
-/*Classe associée au bouton d'enregistrement*/
+/* Classe associée au bouton d'enregistrement*/
 .recButton {
 	bottom: 1em;
 	position: fixed;
@@ -31,7 +31,7 @@ video {
 	background-color: darkred;
 }
 
-/*Classe ajoutée au bouton quand l'image est en cours d'enregistrement*/
+/* Classe ajoutée au bouton quand l'image est en cours d'enregistrement */
 .Rec {
 	background-color: red;
 	animation-name: pulse;
@@ -50,4 +50,33 @@ video {
 	90%{
 		box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
 	}
+}
+
+/* partie intro : .intro est le background et .container est le contenaire du texte */
+
+#intro.next {
+	right:-100%;
+	transition: right 2s;
+}
+
+#intro {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	background-color: white;
+	transition: right 2s;
+}
+
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+	z-index: 1000;
 }

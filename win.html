@@ -8,18 +8,28 @@
     <link href="style.css" rel="stylesheet">
 	<!-- Fichier css pour la popup qui permet d'écrire les paramètres -->
 	<link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
-
 </head>
 
 <body>
-	<!-- Zone ou est affichée le retour vidéo -->
-    <video id="preview" autoplay muted></video>
-	<!-- Bouton pour démarrer l'enregistrement -->
-	<div class="wrapper">
-		<button id="btnRecord" class="recButton">Record Start</button><br>
-	</div>
-	<!-- le code de l'application, importé comme un fichier javascript-->
-    <script src="win.js"></script>
+    	<!-- Zone ou est affichée le retour vidéo -->
+        <video id="preview" autoplay muted></video>
+    	<!-- Bouton pour démarrer l'enregistrement -->
+    	<div class="wrapper">
+    		<button id="btnRecord" class="recButton">Record Start</button><br>
+    	</div>
+    	<!-- le code de l'application, importé comme un fichier javascript-->
+        <script src="win.js"></script>
+        <div id="intro">
+          <div class="container">
+            <p>Appuyez sur une touche pour continuer</p>
+          </div>
+        </div>
 </body>
+<!-- Script qui gère le décalage vers la gauche de la div d'intro en cas de clique par l'utilisateur -->
+<script type="text/javascript">
+  intro.onclick = function(){
+    this.classList.toggle("next")
+  };
+</script>
 
 </html>
