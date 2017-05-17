@@ -91,7 +91,9 @@ saveVideo = _ => {
 		'Nom' +
 		'<input id="swal-input3" class="swal2-input">' +
 	'Email' +
-	'<input id="swal-input4" class="swal2-input" type=email>',
+	'<input id="swal-input4" class="swal2-input" type=email>'
+	+ "Je suis d'accord" +
+'<input id="swal-input4" class="swal2-input" type=checkbox>',
 	  preConfirm: function () {
 	    return new Promise(function (resolve) {
 	      resolve([
@@ -99,6 +101,7 @@ saveVideo = _ => {
 	        $('#swal-input2').val(),
 			    $('#swal-input3').val(),
 					$('#swal-input4').val(),
+					$('#swal-input5').val(),
 	      ])
 	    })
 	  },
@@ -107,8 +110,9 @@ saveVideo = _ => {
 	  }
 	}).then(function (result) {
 		// Ajout des métadonnées de la vidéo à la base de données
-		// var filename = "event_" + videos.length + 1;
-		// metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2],email:result[3], fichier: filename});
+		var videos = metas.getData("/videos");
+		var filename = "event_" + videos.length + 1;
+		metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2],email:result[3], fichier: filename});
 		swal(
 	  //Alerte qui préviens que les données sont enregistrées
 		    {
