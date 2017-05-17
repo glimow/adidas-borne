@@ -1,3 +1,7 @@
+body {
+	overflow: hidden;
+}
+
 /* Div ou est affichée l'image en cours */
 video {
 	position: absolute;

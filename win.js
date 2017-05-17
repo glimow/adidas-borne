@@ -17,8 +17,10 @@ const os = require("os");
 //ffmpeg est l'outil qui permet de convertir les vidéos de webm jusqu'en mp4
 if (os.platform()=="darwin") {
 	var ffmpeg = "./lib/mac/ffmpeg";
-} else {
+} else if(os.platform()=="linux") {
 	var ffmpeg = "./lib/linux/ffmpeg/ffmpeg";
+} else {
+	var ffmpeg = "./lib/win/ffmpeg/ffmpeg.exe"
 }
 
 
@@ -30,8 +32,11 @@ var metas = new JsonDB("metas",true ,true);
 //On récupère les flux vidéos et audio
 navigator.mediaDevices.getUserMedia({
 	video: {
-				width: { ideal: 1920 },
-				height: { ideal: 1080 }
+				width: { min : 1280,
+					ideal: 1920 },
+				height: {
+					min : 720,
+					ideal: 1080 }
 				},
 	audio: true
 }).then(stream => {
@@ -131,13 +136,26 @@ function save(arrayBuffer) {
             swal("Une erreur est survenue en crééant le fichier : " + err.message);
         }
 		else {
-			exec(ffmpeg+" -i "+ filename + ".webm -c:v libx264 -crf 20 -c:a aac -strict experimental "+filename+".mp4" ,function(err, out, code){
-				// if (!err) {
-				//
-				// }
-				console.log(err, out, code);
-				return 0;
-			})
+			const ls = spawn(ffmpeg, ['-i', filename+".webm", "-c:v","libx264","-crf","20","-c:a","aac","-strict","experimental", filename+".mp4"]);
+
+			ls.stdout.on('data', (data) => {
+			  console.log(`stdout: ${data}`);
+			});
+
+			ls.stderr.on('data', (data) => {
+			  console.log(`stderr: ${data}`);
+			});
+
+			ls.on('close', (code) => {
+			  console.log(`child process exited with code ${code}`);
+			});
+			// exec(ffmpeg+" -i "+ filename + ".webm -c:v libx264 -crf 20 -c:a aac -strict experimental "+filename+".mp4" ,function(err, out, code){
+			// 	// if (!err) {
+			// 	//
+			// 	// }
+			// 	console.log(err, out, code);
+			// 	return 0;
+			// })
 		}
     });
 }
