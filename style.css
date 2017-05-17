@@ -1,8 +1,11 @@
+/* Div ou est affichée l'image en cours */
 body {
+	width: 100vw;
+	height: 100vh;
 	overflow: hidden;
 }
 
-/* Div ou est affichée l'image en cours */
+
 video {
 	position: absolute;
   right: 0;
@@ -60,7 +63,7 @@ video {
 
 #intro.next {
 	right:-100%;
-	transition: right 2s;
+	transition: right 0.5s;
 }
 
 #intro {
@@ -71,7 +74,8 @@ video {
 	min-height: 100%;
 	width: auto;
 	background-color: white;
-	transition: right 2s;
+	transition: right 0.5s;
+	z-index: 12;
 }
 
 
@@ -83,4 +87,18 @@ video {
   align-items: center;
   justify-content: center;
 	z-index: 1000;
+	background-image: url(img/ADIDAS_BE_SCREEN_TESTIMONY_DEF2.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#logo { background-image: url(img/ADIDAS_OP_LOGO-02.png);
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	height: 130px;
+	width: 300px;
+	background-repeat: no-repeat;
+	background-size: auto 100% ;
+	z-index: 11;
 }

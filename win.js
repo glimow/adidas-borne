@@ -8,7 +8,7 @@ const swal = require('sweetalert2')
 const $ = require("jquery");
 const exec = require("exec");
 const os = require("os");
-
+const spawn = require('child_process').spawn;
 //Il s'agit d'une version récente de javascript, on peut utiliser "const" en plus de "var"
 //Les "require" servent juste à importer les divers librairies nécessaires
 
@@ -88,14 +88,17 @@ saveVideo = _ => {
 	    '<input id="swal-input1" class="swal2-input">' +
 		'Un commentaire ?' +
 	    '<input id="swal-input2" class="swal2-input">' +
-		'Votre nom' +
-		'<input id="swal-input3" class="swal2-input">',
+		'Nom' +
+		'<input id="swal-input3" class="swal2-input">' +
+	'Email' +
+	'<input id="swal-input4" class="swal2-input" type=email>',
 	  preConfirm: function () {
 	    return new Promise(function (resolve) {
 	      resolve([
 	        $('#swal-input1').val(),
 	        $('#swal-input2').val(),
 			    $('#swal-input3').val(),
+					$('#swal-input4').val(),
 	      ])
 	    })
 	  },
@@ -104,7 +107,8 @@ saveVideo = _ => {
 	  }
 	}).then(function (result) {
 		// Ajout des métadonnées de la vidéo à la base de données
-		metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2]})
+		// var filename = "event_" + videos.length + 1;
+		// metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2],email:result[3], fichier: filename});
 		swal(
 	  //Alerte qui préviens que les données sont enregistrées
 		    {
@@ -128,8 +132,8 @@ function save(arrayBuffer) {
 	//Sauvegarde de la vidéo en webm
     let buffer = new Buffer(arrayBuffer);
     let dt = new Date();
-	videos = metas.getData("/videos");
-	filename = "./video/event_" + videos.length;
+	var videos = metas.getData("/videos");
+	var filename = "./video/event_" + videos.length;
 	//On enregistre le fichier en webm
     fs.writeFile(filename + ".webm" , buffer, function(err) {
         if (err) {
