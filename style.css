@@ -27,7 +27,46 @@ video {
   z-index: -100;
   
 }
-
+div#legende {
+    width: 258px;
+    position: absolute;
+    top: 340px;
+    padding: 0;
+    margin: 0;
+    left: 14px;
+}
+fieldset {
+    border: 1px solid #eee;
+}
+legend {
+    text-transform: uppercase;
+    font-family: sans-serif;
+	letter-spacing: 2px;
+}
+li, ol {
+    margin: 0;
+    font-family: sans-serif;
+    padding: 0;
+}
+span#rec {
+    width: 15px;
+    height: 15px;
+    background-color: darkred;
+    display: inline-block;
+    border-radius: 20px;
+	position: relative;
+	top:2px
+}
+span#stop {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    display: inline-block;
+	position: relative;
+	top:2px
+}
+li {margin:1em 0;}
+ol {padding-left: 20px; }
 .wrapper {
 	text-align: center;
 }
