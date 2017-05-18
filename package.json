@@ -1,6 +1,6 @@
 {
-  "name": "record",
-  "version": "0.0.1",
+  "name": "adidasTestimonyBox",
+  "version": "0.0.4",
   "main": "app.js",
   "dependencies": {
     "barba.js": "^1.0.0",
