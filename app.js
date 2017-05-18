@@ -14,7 +14,7 @@ app.on('ready', _ => {
       }
     })
   });
- win.setFullScreen(true)
+ //win.setFullScreen(true)
     win.loadURL(`file://${__dirname}/win.html`);
     win.on('closed', _ => win = null);
 });
