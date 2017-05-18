@@ -91,9 +91,7 @@ saveVideo = _ => {
 		'Nom' +
 		'<input id="swal-input3" class="swal2-input">' +
 	'Email' +
-	'<input id="swal-input4" class="swal2-input" type=email>'
-	+ "Je suis d'accord" +
-'<input id="swal-input4" class="swal2-input" type=checkbox>',
+	'<input id="swal-input4" class="swal2-input" type=email>',
 	  preConfirm: function () {
 	    return new Promise(function (resolve) {
 	      resolve([
@@ -101,7 +99,6 @@ saveVideo = _ => {
 	        $('#swal-input2').val(),
 			    $('#swal-input3').val(),
 					$('#swal-input4').val(),
-					$('#swal-input5').val(),
 	      ])
 	    })
 	  },
@@ -117,12 +114,12 @@ saveVideo = _ => {
 	  //Alerte qui préviens que les données sont enregistrées
 		    {
 				title: 'Vidéo ajoutée !',
-		    text:'Merci pour votre message',
+		    text:'Merci pour votre participation',
 		    type:'success',
-				timer: 2000
+				timer: 10000
 		 	}
-		).then(()=>{intro.classList.toggle("next")})
-	}).catch(swal.noop)
+		).then(()=>{intro.classList.toggle("next")}).catch(()=>{intro.classList.toggle("next")})
+	}).catch(()=>{intro.classList.toggle("next")})
 
 	const blob = new Blob(recordChunk);
     let fr = new FileReader();
