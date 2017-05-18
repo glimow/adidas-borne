@@ -3,7 +3,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	}
+}
 	#questions {
 			background-image: url(img/questions-video.png);
 	background-repeat: no-repeat;
@@ -11,19 +11,19 @@ body {
 	height: 150px;
 		z-index: 11;
 	background-position: center center ;
-	background-size:1000px auto;
+	background-size:1050px auto;
 		position: absolute;
-		left: 0;
-		bottom:10px;
+		left: 120px;
+		bottom:30px;
 }
 
 
 video {
 	position: absolute;
-    width: 1500px;
+    width: 1300px;
   height: auto;
-  left:calc(50% - 750px);
-  top:calc(50% - 440px);
+  left:calc(50% - 650px);
+  top:calc(50% - 400px);
   z-index: -100;
   
 }
@@ -44,7 +44,7 @@ video {
 	color: white;
 }
 .recButton {
-	bottom: calc(50% - 400px);
+	bottom: calc(50% - 330px);
 	position: fixed;
 	width: 65px;
 	height: 65px;
@@ -114,10 +114,10 @@ video {
 }
 #logo { background-image: url(img/ADIDAS_OP_LOGO-02.png);
 	position: fixed;
-	top: calc(50% - 585px);
-	left: calc(50% - 858px);
+	top: calc(50% - 545px);
+	left: calc(50% - 758px);
 	height: 230px; 
-	width: 400px;
+	width: 350px;
 	background-repeat: no-repeat;
 	background-size: auto 100% ;
 	z-index: 11;
@@ -125,7 +125,7 @@ video {
 #bandeau {
 	background-image: url(img/deco-video.png);
 	position: fixed;
-	top: calc(50% - 500px);
+	top: calc(50% - 450px);
 	right: 0px;
 	height: 107px; 
 	width: 600px;

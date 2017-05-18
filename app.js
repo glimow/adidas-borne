@@ -3,7 +3,7 @@ let win;
 //Ce script gère l'interface entre l'application et le système
 
 app.on('ready', _ => {
-    win = new BrowserWindow({ width: 400, height: 400 , frame:false});
+    win = new BrowserWindow({ width: 1920, height: 1080 , frame:false});
 	globalShortcut.register("CommandOrControl+Q", ()=>{
 		app.quit();
 	});
