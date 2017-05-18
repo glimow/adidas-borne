@@ -6,7 +6,7 @@ const fs = require('fs');
 const JsonDB = require('node-json-db');
 const swal = require('sweetalert2')
 const $ = require("jquery");
-const exec = require("exec");
+const exec = require('child_process').exec;
 const os = require("os");
 const spawn = require('child_process').spawn;
 //Il s'agit d'une version récente de javascript, on peut utiliser "const" en plus de "var"
@@ -80,6 +80,14 @@ btnRecord.onclick = function() {
 //Cette fonction gère les métadonnées et la sauvegarde sur le disque une fois
 //l'enregistrement terminé
 saveVideo = _ => {
+
+    var keyboard = exec('start /d "C:\\Program Files\\Common Files\\microsoft shared\\ink" TabTip.exe', (error, stdout, stderr) => {
+        if (error) {
+            console.error(error);
+            return;
+        }
+    });
+
 		swal({
 	  title: 'Merci pour votre message',
 	  //HTML du popup pour les métadatas de la vidéo
@@ -107,8 +115,10 @@ saveVideo = _ => {
 	  }
 	}).then(function (result) {
 		// Ajout des métadonnées de la vidéo à la base de données
+		console.log(keyboard.pid);
+		kill = exec('taskkill /IM TabTip.exe');
 		var videos = metas.getData("/videos");
-		var filename = "event_" + videos.length + 1;
+		var filename = "event_" + (videos.length + 1);
 		metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2],email:result[3], fichier: filename});
 		swal(
 	  //Alerte qui préviens que les données sont enregistrées
@@ -143,14 +153,14 @@ function save(arrayBuffer) {
 		else {
 			const ls = spawn(ffmpeg, ['-i', filename+".webm", "-c:v","libx264","-crf","20","-c:a","aac","-strict","experimental", filename+".mp4"]);
 
-			ls.stdout.on('data', (data) => {
-			  console.log(`stdout: ${data}`);
-			});
-
-			ls.stderr.on('data', (data) => {
-			  console.log(`stderr: ${data}`);
-			});
-
+			// ls.stdout.on('data', (data) => {
+			//   console.log(`stdout: ${data}`);
+			// });
+			//
+			// ls.stderr.on('data', (data) => {
+			//   console.log(`stderr: ${data}`);
+			// });
+			//
 			ls.on('close', (code) => {
 			  console.log(`child process exited with code ${code}`);
 			});
