@@ -89,7 +89,7 @@ saveVideo = _ => {
     });
 
 		swal({
-	  title: 'Merci pour votre message',
+	  title: 'Merci pour votre participation',
 	  //HTML du popup pour les métadatas de la vidéo
 	  html:
 	  	'Titre' +
@@ -99,7 +99,7 @@ saveVideo = _ => {
 		'Nom' +
 		'<input id="swal-input3" class="swal2-input">' +
 	'Email' +
-	'<input id="swal-input4" class="swal2-input" type=email>',
+	'<input id="swal-input4" class="swal2-input" type="email">',
 	  preConfirm: function () {
 	    return new Promise(function (resolve) {
 	      resolve([

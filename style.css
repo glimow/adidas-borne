@@ -172,3 +172,7 @@ ol {padding-left: 20px; }
 	background-size: 100% auto;
 	z-index: 11;
 }
+.swal2-modal.swal2-show {
+    position: relative;
+    bottom: 200px;
+}
