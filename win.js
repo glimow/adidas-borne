@@ -81,7 +81,7 @@ btnRecord.onclick = function() {
 //l'enregistrement terminé
 saveVideo = _ => {
 
-    var keyboard = exec('start /d "C:\\Program Files\\Common Files\\microsoft shared\\ink" TabTip.exe', (error, stdout, stderr) => {
+    var keyboard = exec('osk', (error, stdout, stderr) => {
         if (error) {
             console.error(error);
             return;
@@ -116,7 +116,7 @@ saveVideo = _ => {
 	}).then(function (result) {
 		// Ajout des métadonnées de la vidéo à la base de données
 		console.log(keyboard.pid);
-		kill = exec('taskkill /IM TabTip.exe');
+		kill = exec('taskkill /IM osk.exe');
 		var videos = metas.getData("/videos");
 		var filename = "event_" + (videos.length + 1);
 		metas.push("/videos[]", {titre:result[0],commentaire:result[1],nom:result[2],email:result[3], fichier: filename});
