@@ -101,13 +101,17 @@ saveVideo = _ => {
 	'Email' +
 	'<input id="swal-input4" class="swal2-input" type="email">',
 	  preConfirm: function () {
-	    return new Promise(function (resolve) {
-	      resolve([
-	        $('#swal-input1').val(),
-	        $('#swal-input2').val(),
-			    $('#swal-input3').val(),
-					$('#swal-input4').val(),
-	      ])
+	    return new Promise(function (resolve, reject) {
+				if ($('#swal-input4').val().match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+					resolve([
+						$('#swal-input1').val(),
+						$('#swal-input2').val(),
+						$('#swal-input3').val(),
+						$('#swal-input4').val(),
+					])
+				} else {
+					reject("Veuillez entrer une adresse email valide")
+				}
 	    })
 	  },
 	  onOpen: function () {
