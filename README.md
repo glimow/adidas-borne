@@ -2,7 +2,7 @@
 ## Installation
 Il faut d'abord installer electron
 
-    npm install -g electron 
+    npm install -g electron
 
 puis les dépendances (dans le dossier du projet)
 
